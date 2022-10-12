@@ -73,6 +73,8 @@ export class PlayerController {
   hideFireButton() {
     let pauseUI = document.getElementById("fire-bullet");
     pauseUI.classList.remove("active");
+    this.mobileInputs.right = false;
+    this.mobileInputs.left = false;
   }
 
   // Direction Button

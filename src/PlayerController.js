@@ -30,28 +30,34 @@ export class PlayerController {
     var timer;
     var timeout;
     document.getElementById("ship-left").addEventListener("mousedown", (el) => {
-      timeout = setTimeout(() => {
-        timer = setInterval(() => {
-          this.playerMoveLeft();
-        }, 5);
-      }, 100);
+      this.mobileInputs.left = true;
     });
+    document
+      .getElementById("ship-left")
+      .addEventListener("touchstart", (el) => {
+        this.mobileInputs.left = true;
+      });
     document.getElementById("ship-left").addEventListener("mouseup", (el) => {
-      clearTimeout(timeout);
-      clearInterval(timer);
+      this.mobileInputs.left = false;
+    });
+    document.getElementById("ship-left").addEventListener("touchend", (el) => {
+      this.mobileInputs.left = false;
     });
     document
       .getElementById("ship-right")
       .addEventListener("mousedown", (el) => {
-        timeout = setTimeout(() => {
-          timer = setInterval(() => {
-            this.playerMoveRight();
-          }, 5);
-        }, 100);
+        this.mobileInputs.right = true;
+      });
+    document
+      .getElementById("ship-right")
+      .addEventListener("touchstart", (el) => {
+        this.mobileInputs.right = true;
       });
     document.getElementById("ship-right").addEventListener("mouseup", (el) => {
-      clearTimeout(timeout);
-      clearInterval(timer);
+      this.mobileInputs.right = false;
+    });
+    document.getElementById("ship-right").addEventListener("touchend", (el) => {
+      this.mobileInputs.right = false;
     });
     document.getElementById("ship-left").addEventListener("click", (el) => {
       this.playerMoveLeft(State.delta);
